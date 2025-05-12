@@ -8,7 +8,7 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        primary: "#00B7FF", // The blue color from the logo
+        primary: "#0cc0df", // Updated blue color
         dark: "#121212",    // Dark background
         light: "#FFFFFF",   // White text
       },

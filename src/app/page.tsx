@@ -9,7 +9,7 @@ import { useInView } from 'react-intersection-observer';
 import ServiceCard from '@/components/ServiceCard';
 import FeatureItem from '@/components/FeatureItem';
 import ContactForm from '@/components/ContactForm';
-import StorySection from '@/components/StorySection';
+import ValueCard from '@/components/ValueCard';
 
 export default function Home() {
   const [isMounted, setIsMounted] = useState(false);
@@ -46,7 +46,7 @@ export default function Home() {
     threshold: 0.1
   });
 
-  const [storyRef, storyInView] = useInView({
+  const [missionRef, missionInView] = useInView({
     triggerOnce: true,
     threshold: 0.1
   });
@@ -56,21 +56,54 @@ export default function Home() {
     threshold: 0.1
   });
 
+  const [partnersRef, partnersInView] = useInView({
+    triggerOnce: true,
+    threshold: 0.1
+  });
+
   const [ctaRef, ctaInView] = useInView({
     triggerOnce: true,
     threshold: 0.1
   });
 
+  // Partners data
+  const partners = [
+    { name: "Partner 1", logo: "/images/partners/partner1.png" },
+    { name: "Partner 2", logo: "/images/partners/partner2.png" },
+    { name: "Partner 3", logo: "/images/partners/partner3.png" },
+    { name: "Partner 4", logo: "/images/partners/partner4.png" },
+    { name: "Partner 5", logo: "/images/partners/partner5.png" },
+    { name: "Partner 6", logo: "/images/partners/partner6.png" },
+    { name: "Partner 7", logo: "/images/partners/partner7.png" },
+    { name: "Partner 8", logo: "/images/partners/partner8.png" },
+  ];
+
+  // Mission, Vision, Values data
+  const values = [
+    {
+      title: "Innovation",
+      description: "We constantly push the boundaries of what's possible, embracing new technologies and methodologies to deliver cutting-edge solutions.",
+      icon: "lightbulb"
+    },
+    {
+      title: "Excellence",
+      description: "We strive for excellence in everything we do, maintaining the highest standards of quality and professionalism.",
+      icon: "star"
+    },
+    {
+      title: "Collaboration",
+      description: "We believe in the power of teamwork and partnership, working closely with our clients to achieve shared goals.",
+      icon: "users"
+    }
+  ];
+
   return (
     <>
-      {/* Hero Section with Parallax */}
-      <section className="relative h-screen w-full overflow-hidden">
-        <div className="absolute inset-0 bg-black/50 z-10"></div>
+      {/* Hero Section with Large Logo and Background Image */}
+      <section id="home" className="relative h-screen w-full overflow-hidden">
+        <div className="absolute inset-0 bg-black/70 z-10"></div>
         
-        {/* Animated background */}
-        <div className="absolute inset-0 bg-gradient-to-r from-black to-transparent z-10 opacity-70"></div>
-        
-        {/* Background image with parallax effect */}
+        {/* Background image */}
         <div className="absolute inset-0">
           <div className="relative h-full w-full">
             <Image
@@ -80,6 +113,18 @@ export default function Home() {
               priority
               style={{ objectFit: 'cover' }}
               className="brightness-75"
+            />
+          </div>
+        </div>
+        
+        {/* Additional decorative background elements */}
+        <div className="absolute inset-0 z-5">
+          <div className="absolute bottom-0 left-0 w-full h-full opacity-20">
+            <Image
+              src="/images/backgrounds/tech-pattern.jpg"
+              alt="Technology Pattern"
+              fill
+              style={{ objectFit: 'cover', objectPosition: 'center' }}
             />
           </div>
         </div>
@@ -119,28 +164,35 @@ export default function Home() {
                   width: '4px',
                   height: '4px',
                   borderRadius: '50%',
-                  backgroundColor: '#00B7FF',
-                  boxShadow: '0 0 10px 2px rgba(0, 183, 255, 0.7)'
+                  backgroundColor: '#0cc0df',
+                  boxShadow: '0 0 10px 2px rgba(12, 192, 223, 0.7)'
                 }}
               />
             ))}
           </div>
         </div>
         
-        {/* Hero content */}
+        {/* Hero content with large logo */}
         <div className="relative z-20 flex flex-col items-center justify-center h-full px-4 md:px-8 lg:px-16">
           <motion.div
             style={{ opacity, scale }}
             className="text-center max-w-4xl mx-auto"
           >
-            <motion.h1 
+            <motion.div 
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6 tracking-tight"
+              className="relative w-72 h-72 md:w-96 md:h-96 mx-auto mb-4"
             >
-              <span className="gradient-text">Quantifai</span>
-            </motion.h1>
+              <Image 
+                src="/images/logo.png"
+                alt="Quantifai Logo"
+                fill
+                style={{ objectFit: 'contain' }}
+                className="drop-shadow-[0_0_15px_rgba(12,192,223,0.5)]"
+                priority
+              />
+            </motion.div>
             <motion.p
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
@@ -156,7 +208,7 @@ export default function Home() {
               className="flex flex-wrap justify-center gap-4"
             >
               <a href="#services" className="btn btn-primary text-lg px-8 py-4">Explore Our Services</a>
-              <a href="#story" className="btn btn-outline text-lg px-8 py-4">Our Story</a>
+              <a href="#mission" className="btn btn-outline text-lg px-8 py-4">Learn More</a>
             </motion.div>
           </motion.div>
         </div>
@@ -221,20 +273,20 @@ export default function Home() {
         </div>
       </motion.section>
 
-      {/* Story Section */}
+      {/* Mission, Vision & Values Section */}
       <motion.section 
-        id="story"
-        ref={storyRef}
+        id="mission"
+        ref={missionRef}
         initial="hidden"
-        animate={storyInView ? "visible" : "hidden"}
+        animate={missionInView ? "visible" : "hidden"}
         variants={fadeIn}
-        className="py-20 relative overflow-hidden"
+        className="py-32 relative overflow-hidden"
       >
         <div className="absolute top-0 left-0 w-full h-full bg-dark/80 z-0"></div>
         <div className="absolute top-0 left-0 w-full h-full z-0">
           <Image
-            src="/images/backgrounds/story-bg.jpg"
-            alt="Our Story Background"
+            src="/images/backgrounds/mission-bg.jpg"
+            alt="Our Mission Background"
             fill
             style={{ objectFit: 'cover' }}
             className="opacity-20"
@@ -242,46 +294,119 @@ export default function Home() {
         </div>
         
         <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-8">
+          {/* Mission */}
+          <div className="text-center mb-20">
+            <span className="text-primary text-sm font-semibold uppercase tracking-wider">Our purpose</span>
+            <h2 className="text-4xl md:text-5xl font-bold mt-2 mb-6">Mission & <span className="gradient-text">Vision</span></h2>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-16 mb-32">
+            <motion.div
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="glass-card p-8 border-l-4 border-primary"
+            >
+              <h3 className="text-2xl font-bold mb-4 text-glow">Our Mission</h3>
+              <p className="text-gray-300 leading-relaxed">
+                To empower businesses with innovative technology solutions that drive growth, efficiency, and competitive advantage in an increasingly digital world. We are committed to delivering excellence through our expertise in software development, AI automation, and digital marketing.
+              </p>
+            </motion.div>
+            
+            <motion.div
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="glass-card p-8 border-r-4 border-primary"
+            >
+              <h3 className="text-2xl font-bold mb-4 text-glow">Our Vision</h3>
+              <p className="text-gray-300 leading-relaxed">
+                To be the leading technology partner for businesses seeking digital transformation, recognized for our innovation, reliability, and the measurable impact we create. We envision a future where every organization can harness the full potential of technology to achieve extraordinary results.
+              </p>
+            </motion.div>
+          </div>
+          
+          {/* Values */}
           <div className="text-center mb-16">
-            <span className="text-primary text-sm font-semibold uppercase tracking-wider">Our journey</span>
-            <h2 className="text-4xl md:text-5xl font-bold mt-2 mb-6">The <span className="gradient-text">Quantifai</span> Story</h2>
+            <span className="text-primary text-sm font-semibold uppercase tracking-wider">What drives us</span>
+            <h2 className="text-4xl md:text-5xl font-bold mt-2 mb-6">Our <span className="gradient-text">Values</span></h2>
             <p className="text-gray-300 max-w-2xl mx-auto text-lg">
-              From humble beginnings to industry innovation, follow our path of growth and discovery.
+              These core principles guide everything we do and define who we are as a company.
             </p>
           </div>
           
-          <div className="space-y-24">
-            <StorySection 
-              year="2018"
-              title="The Beginning"
-              description="Quantifai was founded with a vision to bridge the gap between complex technology and practical business solutions. Our journey began with a small team of passionate technologists."
-              image="/images/backgrounds/story-1.jpg"
-              isLeft={true}
-            />
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {values.map((value, index) => (
+              <ValueCard
+                key={value.title}
+                title={value.title}
+                description={value.description}
+                icon={value.icon}
+                delay={index * 0.2}
+              />
+            ))}
+          </div>
+        </div>
+      </motion.section>
+
+      {/* Partners Section */}
+      <motion.section 
+        id="partners"
+        ref={partnersRef}
+        initial="hidden"
+        animate={partnersInView ? "visible" : "hidden"}
+        variants={fadeIn}
+        className="py-24 bg-dark relative overflow-hidden"
+      >
+        <div className="absolute top-0 right-0 w-1/3 h-1/3 bg-primary/5 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-0 left-0 w-1/2 h-1/2 bg-primary/5 rounded-full blur-3xl"></div>
+        
+        <div className="container mx-auto px-4 md:px-8">
+          <div className="text-center mb-16">
+            <span className="text-primary text-sm font-semibold uppercase tracking-wider">Our clients</span>
+            <h2 className="text-4xl md:text-5xl font-bold mt-2 mb-6">They <span className="gradient-text">Trust Us</span></h2>
+            <p className="text-gray-300 max-w-2xl mx-auto text-lg">
+              We're proud to work with leading companies across various industries.
+            </p>
+          </div>
+          
+          <div className="relative">
+            {/* Partners logos slider */}
+            <div className="flex overflow-hidden">
+              <motion.div
+                className="flex space-x-16 items-center"
+                animate={{
+                  x: [0, -1500],
+                }}
+                transition={{
+                  x: {
+                    repeat: Infinity,
+                    repeatType: "loop",
+                    duration: 30,
+                    ease: "linear",
+                  }
+                }}
+              >
+                {[...partners, ...partners].map((partner, index) => (
+                  <div key={`${partner.name}-${index}`} className="flex-shrink-0 w-40 h-24 relative bg-dark/50 p-4 rounded-lg glass-card">
+                    <div className="w-full h-full relative">
+                      <Image
+                        src={partner.logo}
+                        alt={partner.name}
+                        fill
+                        style={{ objectFit: 'contain' }}
+                      />
+                    </div>
+                  </div>
+                ))}
+              </motion.div>
+            </div>
             
-            <StorySection 
-              year="2020"
-              title="AI Innovation"
-              description="We expanded our focus to artificial intelligence, developing proprietary algorithms and automation tools that revolutionized how businesses handle data and make decisions."
-              image="/images/backgrounds/story-2.jpg"
-              isLeft={false}
-            />
-            
-            <StorySection 
-              year="2022"
-              title="Global Expansion"
-              description="Our client base grew internationally as we established partnerships with industry leaders and expanded our team to include specialists from diverse technological backgrounds."
-              image="/images/backgrounds/story-3.jpg"
-              isLeft={true}
-            />
-            
-            <StorySection 
-              year="Today"
-              title="Shaping the Future"
-              description="Today, we continue to push the boundaries of what's possible, helping businesses transform and thrive in an increasingly digital world through innovative solutions and strategic guidance."
-              image="/images/backgrounds/story-4.jpg"
-              isLeft={false}
-            />
+            {/* Gradient overlays for smooth edge transitions */}
+            <div className="absolute top-0 left-0 h-full w-24 bg-gradient-to-r from-dark to-transparent z-10"></div>
+            <div className="absolute top-0 right-0 h-full w-24 bg-gradient-to-l from-dark to-transparent z-10"></div>
           </div>
         </div>
       </motion.section>
