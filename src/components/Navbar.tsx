@@ -63,7 +63,7 @@ const Navbar = () => {
     >
       <div className="container mx-auto px-4 md:px-8 flex justify-between items-center">
         <Link href="/" className="flex items-center">
-          <div className="relative w-48 h-14">
+          <div className="relative w-56 h-16">
             <Image 
               src="/images/logo.png"
               alt="Quantifai Logo"

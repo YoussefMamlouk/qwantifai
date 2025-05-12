@@ -101,13 +101,13 @@ export default function Home() {
     <>
       {/* Hero Section with Large Logo and Background Image */}
       <section id="home" className="relative h-screen w-full overflow-hidden">
-        <div className="absolute inset-0 bg-black/70 z-10"></div>
+        <div className="absolute inset-0 bg-black/60 z-10"></div>
         
         {/* Background image */}
         <div className="absolute inset-0">
           <div className="relative h-full w-full">
             <Image
-              src="/images/backgrounds/hero-bg.jpg"
+              src="/images/backgrounds/home_background.webp"
               alt="Digital Technology Background"
               fill
               priority
@@ -115,14 +115,6 @@ export default function Home() {
               className="brightness-75"
             />
           </div>
-        </div>
-        
-        {/* Background overlay pattern */}
-        <div className="absolute inset-0 z-5 opacity-20" 
-             style={{ 
-               backgroundImage: 'radial-gradient(circle, rgba(12, 192, 223, 0.1) 1px, transparent 1px)', 
-               backgroundSize: '30px 30px' 
-             }}>
         </div>
         
         {/* Floating particles effect */}
@@ -172,13 +164,13 @@ export default function Home() {
         <div className="relative z-20 flex flex-col items-center justify-center h-full px-4 md:px-8 lg:px-16">
           <motion.div
             style={{ opacity, scale }}
-            className="text-center max-w-4xl mx-auto"
+            className="text-center max-w-5xl mx-auto"
           >
             <motion.div 
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="relative w-80 h-80 md:w-[28rem] md:h-[28rem] mx-auto mb-2"
+              className="relative w-[22rem] h-[22rem] md:w-[32rem] md:h-[32rem] mx-auto mb-0"
             >
               <Image 
                 src="/images/logo.png"
