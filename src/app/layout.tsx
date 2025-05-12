@@ -9,6 +9,9 @@ const inter = Inter({ subsets: ['latin'] })
 export const metadata: Metadata = {
   title: 'Quantifai - Software Development & AI Automation',
   description: 'Quantifai provides software development, AI automation, and digital marketing services to help businesses grow.',
+  icons: {
+    icon: '/favicon.ico',
+  },
 }
 
 export default function RootLayout({
