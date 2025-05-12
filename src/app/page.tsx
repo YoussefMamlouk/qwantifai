@@ -6,10 +6,10 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 
 // Components
-import ServiceCard from '@/components/ServiceCard';
-import FeatureItem from '@/components/FeatureItem';
-import ContactForm from '@/components/ContactForm';
-import ValueCard from '@/components/ValueCard';
+import ServiceCard from '../components/ServiceCard';
+import FeatureItem from '../components/FeatureItem';
+import ContactForm from '../components/ContactForm';
+import ValueCard from '../components/ValueCard';
 
 export default function Home() {
   const [isMounted, setIsMounted] = useState(false);
@@ -117,16 +117,12 @@ export default function Home() {
           </div>
         </div>
         
-        {/* Additional decorative background elements */}
-        <div className="absolute inset-0 z-5">
-          <div className="absolute bottom-0 left-0 w-full h-full opacity-20">
-            <Image
-              src="/images/backgrounds/tech-pattern.jpg"
-              alt="Technology Pattern"
-              fill
-              style={{ objectFit: 'cover', objectPosition: 'center' }}
-            />
-          </div>
+        {/* Background overlay pattern */}
+        <div className="absolute inset-0 z-5 opacity-20" 
+             style={{ 
+               backgroundImage: 'radial-gradient(circle, rgba(12, 192, 223, 0.1) 1px, transparent 1px)', 
+               backgroundSize: '30px 30px' 
+             }}>
         </div>
         
         {/* Floating particles effect */}
@@ -182,7 +178,7 @@ export default function Home() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="relative w-72 h-72 md:w-96 md:h-96 mx-auto mb-4"
+              className="relative w-80 h-80 md:w-[28rem] md:h-[28rem] mx-auto mb-2"
             >
               <Image 
                 src="/images/logo.png"
