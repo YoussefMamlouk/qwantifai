@@ -19,7 +19,7 @@ const Navbar = () => {
       }
 
       // Update active section based on scroll position
-      const sections = ['home', 'services', 'story', 'contact'];
+      const sections = ['home', 'services', 'mission', 'contact'];
       const scrollPosition = window.scrollY + 100;
 
       for (const section of sections) {
@@ -48,7 +48,7 @@ const Navbar = () => {
   const navItems = [
     { name: 'Home', href: '/#home' },
     { name: 'Services', href: '/#services' },
-    { name: 'Our Story', href: '/#story' },
+    { name: 'About Us', href: '/#mission' },
     { name: 'Contact', href: '/#contact', isButton: true }
   ];
 
@@ -63,9 +63,9 @@ const Navbar = () => {
     >
       <div className="container mx-auto px-4 md:px-8 flex justify-between items-center">
         <Link href="/" className="flex items-center">
-          <div className="relative w-56 h-16">
+          <div className="relative w-52 h-14">
             <Image 
-              src="/images/logo.png"
+              src="/images/nav_logo.png"
               alt="Quantifai Logo"
               fill
               style={{ objectFit: 'contain' }}

@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
+import Link from 'next/link';
 
 // Components
 import ServiceCard from '../components/ServiceCard';
@@ -161,7 +162,7 @@ export default function Home() {
         </div>
         
         {/* Hero content with large logo */}
-        <div className="relative z-20 flex flex-col items-center justify-center h-full px-4 md:px-8 lg:px-16">
+        <div className="relative z-20 flex flex-col items-center h-full px-4 md:px-8 lg:px-16" style={{ paddingTop: "calc(25vh - 80px)" }}>
           <motion.div
             style={{ opacity, scale }}
             className="text-center max-w-5xl mx-auto"
@@ -171,8 +172,8 @@ export default function Home() {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.2 }}
-                className="relative w-[22rem] h-[22rem] md:w-[32rem] md:h-[32rem] mx-auto"
-                style={{ marginBottom: "-2rem" }}
+                className="relative w-[18rem] h-[18rem] md:w-[26rem] md:h-[26rem] mx-auto"
+                style={{ marginBottom: "-9rem" }}
               >
                 <Image 
                   src="/images/logo.png"
@@ -187,18 +188,38 @@ export default function Home() {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.4 }}
-                className="text-xl md:text-2xl text-gray-200 mb-10 max-w-3xl mx-auto"
+                className="text-xl md:text-2xl text-gray-200 mb-24 max-w-3xl mx-auto tracking-wide"
               >
-                Smart Software. Smarter Marketing.
+                <span className="font-medium text-white">Smart Software.</span>
+                <br />
+                <span className="font-medium text-primary">Smarter Marketing.</span>
               </motion.p>
               <motion.div
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.6 }}
-                className="flex flex-wrap justify-center gap-4"
+                className="flex flex-wrap justify-center gap-4 z-10"
               >
-                <a href="#services" className="btn btn-primary text-lg px-8 py-4">Explore Our Services</a>
-                <a href="#mission" className="btn btn-outline text-lg px-8 py-4">Learn More</a>
+                <Link 
+                  href="#services" 
+                  className="btn btn-primary text-lg px-8 py-4 cursor-pointer"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' });
+                  }}
+                >
+                  Our Services
+                </Link>
+                <Link 
+                  href="#contact" 
+                  className="btn btn-outline text-lg px-8 py-4 cursor-pointer"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+                  }}
+                >
+                  Request a Demo
+                </Link>
               </motion.div>
             </div>
           </motion.div>
