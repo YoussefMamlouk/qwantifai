@@ -1,5 +1,6 @@
 'use client';
 
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 
 interface ServiceCardProps {
@@ -9,6 +10,8 @@ interface ServiceCardProps {
 }
 
 const ServiceCard = ({ title, description, icon }: ServiceCardProps) => {
+  const [isHovered, setIsHovered] = useState(false);
+  
   const iconComponents = {
     code: (
       <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -29,14 +32,53 @@ const ServiceCard = ({ title, description, icon }: ServiceCardProps) => {
 
   return (
     <motion.div 
-      whileHover={{ y: -10 }}
-      className="bg-dark/40 backdrop-blur-sm p-6 rounded-lg border border-gray-800 hover:border-primary/50 transition-all duration-300"
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-50px" }}
+      transition={{ duration: 0.5 }}
+      className="glass-card p-8 hover-float"
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
     >
-      <div className="w-14 h-14 rounded-full bg-primary/20 flex items-center justify-center text-primary mb-6">
-        {iconComponents[icon as keyof typeof iconComponents]}
+      <div className="relative">
+        <motion.div 
+          className="w-16 h-16 rounded-full bg-primary/20 flex items-center justify-center text-primary mb-6"
+          animate={{ 
+            scale: isHovered ? 1.1 : 1,
+            backgroundColor: isHovered ? 'rgba(0, 183, 255, 0.3)' : 'rgba(0, 183, 255, 0.2)'
+          }}
+          transition={{ duration: 0.3 }}
+        >
+          <motion.div
+            animate={{ rotate: isHovered ? 360 : 0 }}
+            transition={{ duration: 0.7, ease: "easeInOut" }}
+          >
+            {iconComponents[icon as keyof typeof iconComponents]}
+          </motion.div>
+        </motion.div>
+        
+        <motion.div
+          animate={{ x: isHovered ? 5 : 0 }}
+          transition={{ duration: 0.3 }}
+        >
+          <h3 className="text-2xl font-bold mb-4 group-hover:text-primary transition-colors flex items-center">
+            {title}
+            <motion.span
+              className="ml-2 text-primary"
+              initial={{ opacity: 0, x: -10 }}
+              animate={{ opacity: isHovered ? 1 : 0, x: isHovered ? 0 : -10 }}
+              transition={{ duration: 0.3 }}
+            >
+              →
+            </motion.span>
+          </h3>
+          <p className="text-gray-400 leading-relaxed">{description}</p>
+        </motion.div>
+        
+        {/* Decorative elements */}
+        <div className="absolute -bottom-2 -right-2 w-12 h-12 border-r-2 border-b-2 border-primary/30 rounded-br-lg opacity-0 group-hover:opacity-100 transition-opacity"></div>
+        <div className="absolute -top-2 -left-2 w-12 h-12 border-l-2 border-t-2 border-primary/30 rounded-tl-lg opacity-0 group-hover:opacity-100 transition-opacity"></div>
       </div>
-      <h3 className="text-xl font-bold mb-3">{title}</h3>
-      <p className="text-gray-400">{description}</p>
     </motion.div>
   );
 };
