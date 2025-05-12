@@ -166,38 +166,41 @@ export default function Home() {
             style={{ opacity, scale }}
             className="text-center max-w-5xl mx-auto"
           >
-            <motion.div 
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className="relative w-[22rem] h-[22rem] md:w-[32rem] md:h-[32rem] mx-auto mb-0"
-            >
-              <Image 
-                src="/images/logo.png"
-                alt="Quantifai Logo"
-                fill
-                style={{ objectFit: 'contain' }}
-                className="drop-shadow-[0_0_15px_rgba(12,192,223,0.5)]"
-                priority
-              />
-            </motion.div>
-            <motion.p
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
-              className="text-xl md:text-2xl text-gray-200 mb-10 max-w-3xl mx-auto"
-            >
-              Transforming businesses through cutting-edge technology, AI solutions, and digital innovation
-            </motion.p>
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.6 }}
-              className="flex flex-wrap justify-center gap-4"
-            >
-              <a href="#services" className="btn btn-primary text-lg px-8 py-4">Explore Our Services</a>
-              <a href="#mission" className="btn btn-outline text-lg px-8 py-4">Learn More</a>
-            </motion.div>
+            <div className="flex flex-col items-center">
+              <motion.div 
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.2 }}
+                className="relative w-[22rem] h-[22rem] md:w-[32rem] md:h-[32rem] mx-auto"
+                style={{ marginBottom: "-2rem" }}
+              >
+                <Image 
+                  src="/images/logo.png"
+                  alt="Quantifai Logo"
+                  fill
+                  style={{ objectFit: 'contain' }}
+                  className="drop-shadow-[0_0_15px_rgba(12,192,223,0.5)]"
+                  priority
+                />
+              </motion.div>
+              <motion.p
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.4 }}
+                className="text-xl md:text-2xl text-gray-200 mb-10 max-w-3xl mx-auto"
+              >
+                Smart Software. Smarter Marketing.
+              </motion.p>
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.6 }}
+                className="flex flex-wrap justify-center gap-4"
+              >
+                <a href="#services" className="btn btn-primary text-lg px-8 py-4">Explore Our Services</a>
+                <a href="#mission" className="btn btn-outline text-lg px-8 py-4">Learn More</a>
+              </motion.div>
+            </div>
           </motion.div>
         </div>
         
