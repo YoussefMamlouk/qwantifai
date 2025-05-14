@@ -285,6 +285,137 @@ export default function Home() {
         </div>
       </motion.section>
 
+      {/* Our Work Section */}
+      <motion.section 
+        id="work"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        variants={staggerContainer}
+        className="py-32 bg-dark relative overflow-hidden"
+      >
+        {/* Background elements */}
+        <div className="absolute top-0 right-0 w-1/3 h-1/3 bg-primary/5 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-0 left-0 w-1/2 h-1/2 bg-primary/5 rounded-full blur-3xl"></div>
+        
+        <motion.div variants={fadeIn} className="text-center mb-20">
+          <span className="text-primary text-sm font-semibold uppercase tracking-wider">Our portfolio</span>
+          <h2 className="text-4xl md:text-5xl font-bold mt-2 mb-6">Our <span className="gradient-text">Work</span></h2>
+          <p className="text-gray-300 max-w-2xl mx-auto text-lg">
+            Explore our latest projects and see how we've helped businesses achieve their digital transformation goals.
+          </p>
+        </motion.div>
+        
+        <div className="container mx-auto px-4 md:px-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {/* Project 1 */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.1, duration: 0.5 }}
+              className="glass-card overflow-hidden rounded-xl"
+            >
+              <div className="relative h-60 w-full overflow-hidden">
+                <Image
+                  src="/images/projects/project1.jpg"
+                  alt="E-commerce Platform"
+                  fill
+                  style={{ objectFit: 'cover' }}
+                  className="transition-transform duration-500 hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
+                <div className="absolute bottom-4 left-4 right-4">
+                  <h3 className="text-xl font-bold text-white">E-commerce Platform</h3>
+                  <p className="text-primary text-sm">Web Development</p>
+                </div>
+              </div>
+              <div className="p-6">
+                <p className="text-gray-300 mb-4">A modern e-commerce solution with AI-powered product recommendations and seamless payment processing.</p>
+                <Link href="#" className="text-primary hover:text-primary/80 font-medium flex items-center gap-2 group">
+                  View Case Study
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                  </svg>
+                </Link>
+              </div>
+            </motion.div>
+            
+            {/* Project 2 */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2, duration: 0.5 }}
+              className="glass-card overflow-hidden rounded-xl"
+            >
+              <div className="relative h-60 w-full overflow-hidden">
+                <Image
+                  src="/images/projects/project2.jpg"
+                  alt="AI Analytics Dashboard"
+                  fill
+                  style={{ objectFit: 'cover' }}
+                  className="transition-transform duration-500 hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
+                <div className="absolute bottom-4 left-4 right-4">
+                  <h3 className="text-xl font-bold text-white">AI Analytics Dashboard</h3>
+                  <p className="text-primary text-sm">Data Visualization</p>
+                </div>
+              </div>
+              <div className="p-6">
+                <p className="text-gray-300 mb-4">Real-time analytics platform with predictive insights and customizable dashboards for data-driven decision making.</p>
+                <Link href="#" className="text-primary hover:text-primary/80 font-medium flex items-center gap-2 group">
+                  View Case Study
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                  </svg>
+                </Link>
+              </div>
+            </motion.div>
+            
+            {/* Project 3 */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.3, duration: 0.5 }}
+              className="glass-card overflow-hidden rounded-xl"
+            >
+              <div className="relative h-60 w-full overflow-hidden">
+                <Image
+                  src="/images/projects/project3.jpg"
+                  alt="Mobile Banking App"
+                  fill
+                  style={{ objectFit: 'cover' }}
+                  className="transition-transform duration-500 hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
+                <div className="absolute bottom-4 left-4 right-4">
+                  <h3 className="text-xl font-bold text-white">Mobile Banking App</h3>
+                  <p className="text-primary text-sm">Mobile Development</p>
+                </div>
+              </div>
+              <div className="p-6">
+                <p className="text-gray-300 mb-4">Secure and intuitive mobile banking application with biometric authentication and personalized financial insights.</p>
+                <Link href="#" className="text-primary hover:text-primary/80 font-medium flex items-center gap-2 group">
+                  View Case Study
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                  </svg>
+                </Link>
+              </div>
+            </motion.div>
+          </div>
+          
+          <div className="text-center mt-12">
+            <Link href="#contact" className="btn btn-primary">
+              Start Your Project
+            </Link>
+          </div>
+        </div>
+      </motion.section>
+
       {/* Mission, Vision & Values Section */}
       <motion.section 
         id="mission"
@@ -363,6 +494,46 @@ export default function Home() {
         </div>
       </motion.section>
 
+      {/* Features Section with Animated Icons */}
+      <motion.section 
+        ref={featuresRef}
+        initial="hidden"
+        animate={featuresInView ? "visible" : "hidden"}
+        variants={staggerContainer}
+        className="section-padding py-32 relative overflow-hidden"
+      >
+        {/* Background elements */}
+        <div className="absolute top-1/4 right-1/4 w-64 h-64 bg-primary/10 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-1/4 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl"></div>
+        
+        <motion.div variants={fadeIn} className="text-center mb-20">
+          <span className="text-primary text-sm font-semibold uppercase tracking-wider">Why choose us</span>
+          <h2 className="text-4xl md:text-5xl font-bold mt-2 mb-6">Our <span className="gradient-text">Approach</span></h2>
+          <p className="text-gray-300 max-w-2xl mx-auto text-lg">
+            We combine technical expertise with creative thinking to deliver exceptional results that exceed expectations.
+          </p>
+        </motion.div>
+        
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-6xl mx-auto">
+          <FeatureItem 
+            title="Cutting-Edge Technology"
+            description="We stay at the forefront of technological advancements to provide innovative solutions that give your business a competitive edge."
+          />
+          <FeatureItem 
+            title="Tailored Approach"
+            description="Every solution is customized to meet your specific business requirements and goals, ensuring maximum impact and ROI."
+          />
+          <FeatureItem 
+            title="Expert Team"
+            description="Our team of experienced professionals brings diverse skills and deep expertise to solve even the most complex challenges."
+          />
+          <FeatureItem 
+            title="Continuous Support"
+            description="We provide ongoing support and maintenance to ensure your solutions remain effective and adapt to changing needs."
+          />
+        </div>
+      </motion.section>
+
       {/* Partners Section */}
       <motion.section 
         id="partners"
@@ -420,46 +591,6 @@ export default function Home() {
             <div className="absolute top-0 left-0 h-full w-24 bg-gradient-to-r from-dark to-transparent z-10"></div>
             <div className="absolute top-0 right-0 h-full w-24 bg-gradient-to-l from-dark to-transparent z-10"></div>
           </div>
-        </div>
-      </motion.section>
-
-      {/* Features Section with Animated Icons */}
-      <motion.section 
-        ref={featuresRef}
-        initial="hidden"
-        animate={featuresInView ? "visible" : "hidden"}
-        variants={staggerContainer}
-        className="section-padding py-32 relative overflow-hidden"
-      >
-        {/* Background elements */}
-        <div className="absolute top-1/4 right-1/4 w-64 h-64 bg-primary/10 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-1/4 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl"></div>
-        
-        <motion.div variants={fadeIn} className="text-center mb-20">
-          <span className="text-primary text-sm font-semibold uppercase tracking-wider">Why choose us</span>
-          <h2 className="text-4xl md:text-5xl font-bold mt-2 mb-6">Our <span className="gradient-text">Approach</span></h2>
-          <p className="text-gray-300 max-w-2xl mx-auto text-lg">
-            We combine technical expertise with creative thinking to deliver exceptional results that exceed expectations.
-          </p>
-        </motion.div>
-        
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-6xl mx-auto">
-          <FeatureItem 
-            title="Cutting-Edge Technology"
-            description="We stay at the forefront of technological advancements to provide innovative solutions that give your business a competitive edge."
-          />
-          <FeatureItem 
-            title="Tailored Approach"
-            description="Every solution is customized to meet your specific business requirements and goals, ensuring maximum impact and ROI."
-          />
-          <FeatureItem 
-            title="Expert Team"
-            description="Our team of experienced professionals brings diverse skills and deep expertise to solve even the most complex challenges."
-          />
-          <FeatureItem 
-            title="Continuous Support"
-            description="We provide ongoing support and maintenance to ensure your solutions remain effective and adapt to changing needs."
-          />
         </div>
       </motion.section>
 

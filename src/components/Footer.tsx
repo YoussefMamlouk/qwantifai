@@ -47,10 +47,7 @@ const Footer = () => {
     ],
     company: [
       { name: 'About Us', href: '/#story' },
-      { name: 'Our Work', href: '/#portfolio' },
-      { name: 'Team', href: '/#team' },
-      { name: 'Blog', href: '/blog' },
-      { name: 'Careers', href: '/careers' }
+      { name: 'Our Work', href: '/#work' }
     ]
   };
 
@@ -116,7 +113,7 @@ const Footer = () => {
               </div>
             </div>
             <p className="text-gray-400 mb-6 leading-relaxed">
-              Transforming businesses through innovative software solutions, AI automation, and digital marketing strategies.
+              Transforming businesses through innovative software solutions, AI automations, and digital marketing strategies.
             </p>
             <div className="flex space-x-4">
               {socialLinks.map((social, index) => (
