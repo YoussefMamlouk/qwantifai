@@ -7,8 +7,8 @@ import Footer from '@/components/Footer'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'Quantifai - Software Development & AI Automation',
-  description: 'Quantifai provides software development, AI automation, and digital marketing services to help businesses grow.',
+  title: 'Qwantifai - Software Development & AI Automation',
+  description: 'Qwantifai provides software development, AI automation, and digital marketing services to help businesses grow.',
   icons: {
     icon: '/favicon.ico',
   },

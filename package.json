@@ -1,5 +1,5 @@
 {
-  "name": "quantifai-website",
+  "name": "qwantifai-website",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -7,7 +7,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "export": "next build && next export"
+    "export": "next build && next export",
+    "preview": "npm run build && npx serve out -p 3001",
+    "serve": "npx serve out -p 3001"
   },
   "dependencies": {
     "next": "14.1.0",

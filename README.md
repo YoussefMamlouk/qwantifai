@@ -1,6 +1,6 @@
-# Quantifai Website
+# Qwantifai Website
 
-Modern website for Quantifai, a company specializing in software development, AI automation, and digital marketing.
+Modern website for Qwantifai, a company specializing in software development, AI automation, and digital marketing.
 
 ## Features
 

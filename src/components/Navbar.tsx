@@ -66,7 +66,7 @@ const Navbar = () => {
           <div className="relative w-52 h-14">
             <Image 
               src="/images/nav_logo.png"
-              alt="Quantifai Logo"
+              alt="Qwantifai Logo"
               fill
               style={{ objectFit: 'contain' }}
               priority
