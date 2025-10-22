@@ -105,13 +105,18 @@ export default function Home() {
         <div className="absolute inset-0 bg-black/60 z-10"></div>
         
         {/* Background image */}
-        <div 
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{
-            backgroundImage: 'url(/images/backgrounds/home_background.webp)',
-            filter: 'brightness(0.75)'
-          }}
-        ></div>
+        <div className="absolute inset-0">
+          <div className="relative h-full w-full">
+            <Image
+              src="/images/backgrounds/home_background.webp"
+              alt="Digital Technology Background"
+              fill
+              priority
+              style={{ objectFit: 'cover' }}
+              className="brightness-75"
+            />
+          </div>
+        </div>
         
         {/* Floating particles effect */}
         <div className="absolute inset-0 z-10">
@@ -421,12 +426,15 @@ export default function Home() {
         className="py-32 relative overflow-hidden"
       >
         <div className="absolute top-0 left-0 w-full h-full bg-dark/80 z-0"></div>
-        <div 
-          className="absolute top-0 left-0 w-full h-full z-0 bg-cover bg-center bg-no-repeat opacity-20"
-          style={{
-            backgroundImage: 'url(/images/backgrounds/mission-bg.jpg)'
-          }}
-        ></div>
+        <div className="absolute top-0 left-0 w-full h-full z-0">
+          <Image
+            src="/images/backgrounds/mission-bg.jpg"
+            alt="Our Mission Background"
+            fill
+            style={{ objectFit: 'cover' }}
+            className="opacity-20"
+          />
+        </div>
         
         <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-8">
           {/* Mission */}
@@ -595,12 +603,15 @@ export default function Home() {
         variants={fadeIn}
         className="py-32 relative overflow-hidden"
       >
-        <div 
-          className="absolute top-0 left-0 w-full h-full z-0 bg-cover bg-center bg-no-repeat opacity-30"
-          style={{
-            backgroundImage: 'url(/images/backgrounds/cta-bg.jpg)'
-          }}
-        ></div>
+        <div className="absolute top-0 left-0 w-full h-full z-0">
+          <Image
+            src="/images/backgrounds/cta-bg.jpg"
+            alt="Contact Background"
+            fill
+            style={{ objectFit: 'cover' }}
+            className="opacity-30"
+          />
+        </div>
         <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-dark to-dark/80 z-0"></div>
         
         <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-8">
