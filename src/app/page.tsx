@@ -631,7 +631,7 @@ export default function Home() {
                   </div>
                   <div>
                     <h3 className="text-lg font-semibold">Email Us</h3>
-                    <span className="text-gray-300">qwantifai@gmail.com</span>
+                    <span className="text-gray-300">info@qwantifai.com</span>
                   </div>
                 </div>
               </div>
