@@ -30,15 +30,15 @@ const Footer = () => {
 
   const footerLinks = {
     services: [
-      { name: 'Software Development', href: '/#services' },
-      { name: 'AI Automation', href: '/#services' },
-      { name: 'Digital Marketing', href: '/#services' },
-      { name: 'Web Design', href: '/#services' },
-      { name: 'Mobile Apps', href: '/#services' }
+      { name: 'Software Development', href: '#services' },
+      { name: 'AI Automation', href: '#services' },
+      { name: 'Digital Marketing', href: '#services' },
+      { name: 'Web Design', href: '#services' },
+      { name: 'Mobile Apps', href: '#services' }
     ],
     company: [
-      { name: 'About Us', href: '/#story' },
-      { name: 'Our Work', href: '/#work' }
+      { name: 'About Us', href: '#mission' },
+      { name: 'Our Work', href: '#work' }
     ]
   };
 

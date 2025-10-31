@@ -46,11 +46,23 @@ const Navbar = () => {
   }, []);
 
   const navItems = [
-    { name: 'Home', href: '/#home' },
-    { name: 'Services', href: '/#services' },
-    { name: 'About Us', href: '/#mission' },
-    { name: 'Contact', href: '/#contact', isButton: true }
+    { name: 'Home', href: '#home' },
+    { name: 'Services', href: '#services' },
+    { name: 'About Us', href: '#mission' },
+    { name: 'Contact', href: '#contact', isButton: true }
   ];
+
+  const handleInPageNav = (href: string) => (event: React.MouseEvent<HTMLAnchorElement>) => {
+    if (href.startsWith('#')) {
+      event.preventDefault();
+      const targetId = href.slice(1);
+      const element = document.getElementById(targetId);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+      setIsMobileMenuOpen(false);
+    }
+  };
 
   return (
     <motion.nav 
@@ -80,7 +92,8 @@ const Navbar = () => {
             item.isButton ? (
               <Link 
                 key={item.name}
-                href={item.href} 
+                href={item.href}
+                onClick={handleInPageNav(item.href)}
                 className="btn btn-primary"
               >
                 {item.name}
@@ -88,15 +101,16 @@ const Navbar = () => {
             ) : (
               <Link 
                 key={item.name}
-                href={item.href} 
+                href={item.href}
+                onClick={handleInPageNav(item.href)}
                 className={`relative animated-border px-2 py-1 ${
-                  activeSection === item.href.replace('/#', '') 
+                  activeSection === item.href.replace('#', '') 
                     ? 'text-primary' 
                     : 'text-light hover:text-primary'
                 } transition-colors`}
               >
                 {item.name}
-                {activeSection === item.href.replace('/#', '') && (
+                {activeSection === item.href.replace('#', '') && (
                   <motion.div
                     layoutId="activeSection"
                     className="absolute -bottom-1 left-0 w-full h-0.5 bg-primary"
@@ -168,14 +182,14 @@ const Navbar = () => {
               {navItems.map((item) => (
                 <Link 
                   key={item.name}
-                  href={item.href} 
+                  href={item.href}
+                  onClick={handleInPageNav(item.href)}
                   className={item.isButton 
                     ? "btn btn-primary text-center" 
                     : `text-light hover:text-primary transition-colors py-2 ${
-                        activeSection === item.href.replace('/#', '') ? 'text-primary font-semibold' : ''
+                        activeSection === item.href.replace('#', '') ? 'text-primary font-semibold' : ''
                       }`
                   }
-                  onClick={() => setIsMobileMenuOpen(false)}
                 >
                   {item.name}
                 </Link>
